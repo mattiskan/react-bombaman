@@ -15,11 +15,9 @@ export default React.createClass({
         <div>
         {boardState.squares.map(
           (row) =>
-            <p>a {row.map(col => <Square data={col} />)}</p>
-            
-            
-        
-        )}
+              <p>{row.map(col => <Square data={col}/>)}</p>
+        )
+        }
         </div>
     );
   }
