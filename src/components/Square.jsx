@@ -7,8 +7,7 @@ export default React.createClass({
     let {data} = this.props;
 
     return (
-        <span style={style}>{data} </span>
+      <span style={style}>{data} </span>
     );
   }
-  
 });

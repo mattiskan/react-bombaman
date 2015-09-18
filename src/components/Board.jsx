@@ -7,19 +7,19 @@ export default React.createClass({
   propTypes: function() {
     boardState: React.PropTypes.object.isRequired
   },
-  
+
   render: function() {
     let {boardState} = this.props;
-    
+
     return (
-        <div>
+      <div>
         {boardState.squares.map(
           (row) =>
-              <p>{row.map(col => <Square data={col}/>)}</p>
-        )
+          <p>{row.map(col => <Square data={col}/>)}</p>
+          )
         }
-        </div>
+      </div>
     );
   }
-  
+
 });
