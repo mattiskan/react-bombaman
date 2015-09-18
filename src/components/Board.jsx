@@ -10,12 +10,13 @@ export default React.createClass({
 
   render: function() {
     let {boardState} = this.props;
+    let style = {marginTop: 0, marginBottom: 0}
 
     return (
       <div>
         {boardState.squares.map(
           (row) =>
-          <p>{row.map(col => <Square data={col}/>)}</p>
+          <p style={style}>{row.map(col => <Square data={col}/>)}</p>
           )
         }
       </div>

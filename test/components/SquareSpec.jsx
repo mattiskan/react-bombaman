@@ -2,17 +2,31 @@ import React from 'react/addons';
 import Square from '../../src/components/Square.jsx';
 import {expect} from 'chai';
 
-const {renderIntoDocument, scryRenderedDOMComponentsWithTag} = React.addons.TestUtils;
+const TestUtils = React.addons.TestUtils;
+
+const shallowRenderer = TestUtils.createRenderer();
+
+let GRASS = {type: 'GRASS', value: 1};
 
 describe('Square', () => {
+  // it('renders as a <span>', () => {
+  //   shallowRenderer.render(
+  //     React.createElement(Square, GRASS)
+  //   )
+  //
+  //   const result = shallowRenderer.getRenderOutput();
+  //   expect(result).to.equal(1);
+  // });
 
-  it('renders as a <span>', () => {
-    const component = renderIntoDocument(
-        <Square data={7} />
-    );
+  describe('types', () => {
+    it('grass renders green', () => {
+      shallowRenderer.render(
+        React.createElement(Square, {data: GRASS})
+      );
 
-    const squares = scryRenderedDOMComponentsWithTag(component, 'span');
-    expect(squares.length).to.equal(1);
+      const result = shallowRenderer.getRenderOutput();
+
+      expect(result.type.displayName).to.equal('GrassSquare');
+    });
   });
-
 });

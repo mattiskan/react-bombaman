@@ -11,14 +11,13 @@ const dummyBoardState = {
 };
 
 describe('Board', () => {
-  
   it('renders as a <Square>', () => {
     shallowRenderer.render(
       React.createElement(Board, {boardState: dummyBoardState})
     );
 
     const result = shallowRenderer.getRenderOutput().props.children;
-    expect(result).to.have.length(2);    
+    expect(result).to.have.length(2);
     result.map(p => {
       expect(p.type).to.equal('p')
     })
