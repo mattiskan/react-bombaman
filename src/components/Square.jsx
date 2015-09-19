@@ -1,15 +1,21 @@
 import React from 'react';
 import Grass from './GrassSquare';
+import Player from './Player';
 
 export default React.createClass({
   render: function() {
     let tile;
-    console.log(this.props);
-    let { data } = this.props;
+    let { data, boardState } = this.props;
+
+    let hasPlayer = function(col, boardState) {
+      return (col.x == boardState.player.x && col.y == boardState.player.y);
+    }
 
     if(data.type === 'GRASS') {
       tile = (
-        <Grass />
+        <Grass>
+          { hasPlayer(data, boardState) ? <Player /> : null}
+        </Grass>
       )
     } else {
       tile = (

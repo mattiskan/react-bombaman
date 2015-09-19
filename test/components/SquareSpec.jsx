@@ -9,19 +9,10 @@ const shallowRenderer = TestUtils.createRenderer();
 let GRASS = {type: 'GRASS', value: 1};
 
 describe('Square', () => {
-  // it('renders as a <span>', () => {
-  //   shallowRenderer.render(
-  //     React.createElement(Square, GRASS)
-  //   )
-  //
-  //   const result = shallowRenderer.getRenderOutput();
-  //   expect(result).to.equal(1);
-  // });
-
   describe('types', () => {
     it('grass renders green', () => {
       shallowRenderer.render(
-        React.createElement(Square, {data: GRASS})
+        React.createElement(Square, {data: GRASS, boardState: {player: {x: 2, y: 3}}})
       );
 
       const result = shallowRenderer.getRenderOutput();

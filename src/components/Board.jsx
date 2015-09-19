@@ -16,11 +16,11 @@ export default React.createClass({
       <div>
         {boardState.squares.map(
           (row) =>
-          <p style={style}>{row.map(col => <Square data={col}/>)}</p>
+          <p style={style}>{row.map(col => <Square data={col} boardState={boardState}/>)}</p>
           )
         }
       </div>
     );
   }
-
 });
+
